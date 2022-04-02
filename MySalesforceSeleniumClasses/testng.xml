@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Salesforce">
+
+<parameter name="ori" value="Phone"></parameter>
+<parameter name="subj" value="Password Request"></parameter>
+<parameter name="subjTC2" value="Password Request"></parameter>
+<parameter name="reason" value="Installation"></parameter>
+<parameter name="comments" value="Ok"></parameter>
+<parameter name="caseNum" value="00001036"></parameter>
+<parameter name="caseNumAC3" value="00001035"></parameter>
+
+<test name="salesforce test">
+  <classes>
+  
+  
+  <class name= "salesforceCaseMgmt.AccepCriteriaThree_TC1"/>
+ 
+  
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+
