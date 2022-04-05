@@ -1,5 +1,4 @@
 
-
 // Verify if the subject field is populated with default value when an existing case is updated with Subject as blank 
 
 package salesforceCaseMgmt;
@@ -19,27 +18,28 @@ import SalesforceBasePage.Login;
 public class AccepCriteriaTwo_TC2 extends BasePage {
 
 	@BeforeClass
-	
+
 	public void setUp() {
 		Login.initialize();
 	}
-@Test
-@Parameters ({"caseNum"})
-public void caseScreen(String caseNum) throws InterruptedException {
 
-	clickCaseTab();
-	clickSearch(caseNum);
-	clickFirstRecord();
-	clickEdit();	
-	clearSubject();
-	clickSave_ExistingRec();
-	String defSubject= storeDefaultSubject_existingRec();
-	assertTrue(!defSubject.isEmpty());
-}
+	@Test(suiteName = "Salesforce", testName = "AcceptanceCriteria2_TC2", description = "AcceptanceCriteria2_TC2", enabled = true)
+	@Parameters({ "caseNum" })
+	public void caseScreen(String caseNum) throws InterruptedException {
 
-@AfterClass
-public void quit() {
+		clickCaseTab();
+		clickSearch(caseNum);
+		clickFirstRecord();
+		clickEdit();
+		clearSubject();
+		clickSave_ExistingRec();
+		String defSubject = storeDefaultSubject_existingRec();
+		assertTrue(!defSubject.isEmpty());
+	}
+
+	@AfterClass
+	public void quit() {
 
 //	Login.closeBrowser();
-}
+	}
 }

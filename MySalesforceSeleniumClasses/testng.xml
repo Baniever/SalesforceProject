@@ -4,21 +4,20 @@
 
 <parameter name="ori" value="Phone"></parameter>
 <parameter name="subj" value="Password Request"></parameter>
-<parameter name="subjTC2" value="Password Request"></parameter>
+<parameter name="subjTC2" value="Happy Flow"></parameter>
 <parameter name="reason" value="Installation"></parameter>
 <parameter name="comments" value="Ok"></parameter>
-<parameter name="caseNum" value="00001036"></parameter>
+<parameter name="caseNum" value="00001044"></parameter>
 <parameter name="caseNumAC3" value="00001035"></parameter>
 
 <listeners>
-<listener class-name="salesforceCaseMgmt.ExtentReports_TestNG2"></listener>
+<listener class-name="SalesforceBasePage.ExtentReports_TestNG"></listener>
 </listeners>
 
 <test name="salesforce test">
   <classes>
   
-  
-  <class name= "salesforceCaseMgmt.AccepCriteriaOne_TC1"/>
+  <class name= "salesforceCaseMgmt.AccepCriteriaTwo_TC1"/>
  
   
     </classes>

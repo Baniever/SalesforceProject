@@ -1,5 +1,4 @@
 
-
 // Verify the error message when Service Agent tried to delete a case 
 
 package salesforceCaseMgmt;
@@ -19,26 +18,27 @@ import SalesforceBasePage.Login;
 public class AccepCriteriaThree_TC1 extends BasePage {
 
 	@BeforeClass
-	
+
 	public void setUp() {
 		Login.initialize();
 	}
-@Test
-@Parameters ({"caseNumAC3"})
-public void caseScreen(String caseNum) throws InterruptedException {
 
-	clickCaseTab();
-	clickSearch(caseNum);
-	clickFirstRecord();
-	clickDelete();	
-	String actualMessage = storeDeleteAlertmessage();
-	String expectedMessage = "Case Cannot Be Deleted!";
-	Assert.assertEquals(expectedMessage, actualMessage);
-}
+	@Test(suiteName = "Salesforce", testName = "AcceptanceCriteria3_TC1", description = "AcceptanceCriteria3_TC1", enabled = true)
+	@Parameters({ "caseNumAC3" })
+	public void caseScreen(String caseNum) throws InterruptedException {
 
-@AfterClass
-public void quit() {
+		clickCaseTab();
+		clickSearch(caseNum);
+		clickFirstRecord();
+		clickDelete();
+		String actualMessage = storeDeleteAlertmessage();
+		String expectedMessage = "Case Cannot Be Deleted!";
+		Assert.assertEquals(expectedMessage, actualMessage);
+	}
+
+	@AfterClass
+	public void quit() {
 
 //	Login.closeBrowser();
-}
+	}
 }

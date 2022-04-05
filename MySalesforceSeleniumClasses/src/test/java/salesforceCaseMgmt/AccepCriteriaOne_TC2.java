@@ -15,27 +15,28 @@ import SalesforceBasePage.Login;
 public class AccepCriteriaOne_TC2 extends BasePage {
 
 	@BeforeClass
-	
+
 	public void setUp() {
 		Login.initialize();
 	}
-@Test
-@Parameters ({"ori","subjTC3","reason","comments"})
-public void caseScreen(String ori,String subj,String reason,String comments) throws InterruptedException {
 
-	clickCaseTab();
-	clickNewCase();
+	@Test(suiteName = "Salesforce", testName = "AcceptanceCriteria1_TC2", description = "AcceptanceCriteria1_TC2", enabled = true)
+	@Parameters({ "ori", "subjTC2", "reason", "comments" })
+	public void caseScreen(String ori, String subj, String reason, String comments) throws InterruptedException {
+
+		clickCaseTab();
+		clickNewCase();
 //	clickCaseOrigin();
-	selectCaseOrigin(ori);
-	selectCaseReason(reason);
-	inputSubject(subj);
-	inputComments(comments);
-	clickSave() ;
-}
+		selectCaseOrigin(ori);
+		selectCaseReason(reason);
+		inputSubject(subj);
+		inputComments(comments);
+		clickSave();
+	}
 
-@AfterClass
-public void quit() {
+	@AfterClass
+	public void quit() {
 
 //	Login.closeBrowser();
-}
+	}
 }

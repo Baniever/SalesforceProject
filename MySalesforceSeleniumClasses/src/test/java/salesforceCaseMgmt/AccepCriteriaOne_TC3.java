@@ -1,5 +1,4 @@
 
-
 // Verify whether error message is displayed when case origin is not provided
 
 package salesforceCaseMgmt;
@@ -21,7 +20,7 @@ public class AccepCriteriaOne_TC3 extends BasePage {
 		Login.initialize();
 	}
 
-	@Test
+	@Test(suiteName = "Salesforce", testName = "AcceptanceCriteria1_TC3", description = "AcceptanceCriteria1_TC3", enabled = true)
 
 	public void caseScreen() throws InterruptedException {
 
