@@ -10,11 +10,15 @@
 <parameter name="caseNum" value="00001036"></parameter>
 <parameter name="caseNumAC3" value="00001035"></parameter>
 
+<listeners>
+<listener class-name="salesforceCaseMgmt.ExtentReports_TestNG2"></listener>
+</listeners>
+
 <test name="salesforce test">
   <classes>
   
   
-  <class name= "salesforceCaseMgmt.AccepCriteriaThree_TC1"/>
+  <class name= "salesforceCaseMgmt.AccepCriteriaOne_TC1"/>
  
   
     </classes>

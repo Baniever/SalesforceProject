@@ -1,3 +1,7 @@
+
+
+// Verify the error message when Service Agent tried to delete a case 
+
 package salesforceCaseMgmt;
 
 import static org.testng.Assert.assertFalse;
@@ -24,7 +28,6 @@ public class AccepCriteriaThree_TC1 extends BasePage {
 public void caseScreen(String caseNum) throws InterruptedException {
 
 	clickCaseTab();
-	Thread.sleep(10000);
 	clickSearch(caseNum);
 	clickFirstRecord();
 	clickDelete();	

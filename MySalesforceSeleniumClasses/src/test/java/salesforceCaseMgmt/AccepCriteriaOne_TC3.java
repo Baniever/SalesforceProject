@@ -1,3 +1,7 @@
+
+
+// Verify whether error message is displayed when case origin is not provided
+
 package salesforceCaseMgmt;
 
 import org.testng.Assert;
@@ -22,7 +26,6 @@ public class AccepCriteriaOne_TC3 extends BasePage {
 	public void caseScreen() throws InterruptedException {
 
 		clickCaseTab();
-		Thread.sleep(10000);
 		clickNewCase();
 		clickSave();
 		String actualError = storeError_BlankOrigin();

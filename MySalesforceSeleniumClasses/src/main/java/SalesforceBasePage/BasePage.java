@@ -3,11 +3,14 @@ package SalesforceBasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import SalesforceBasePage.Login;
 
 import static org.testng.Assert.ARRAY_MISMATCH_TEMPLATE;
 
+import java.time.Duration;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -21,21 +24,28 @@ import org.openqa.selenium.WebElement;
 public class BasePage {
 
     
-	 public  void clickCaseTab()    {
+	 @SuppressWarnings("deprecation")
+	public  void commonWait()    {
+		  Login.getdriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	 }
+	 
+	 
+	 public  void clickCaseTab() throws InterruptedException    {
 		 JavascriptExecutor js = (JavascriptExecutor)Login.getdriver();
 	      WebElement caseTab = Login.getdriver().findElement(By.xpath("(//a[@title='Cases'])"));
 	      js.executeScript("arguments[0].click();", caseTab);
-//	      caseTab.click();
-//	      caseTab.click();
-	      Login.getdriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	      Thread.sleep(10000);
+	      commonWait();
 	    }
 	 
-    public  void clickNewCase()    {
-    	
+    public  void clickNewCase()    {    	
     	  JavascriptExecutor js = (JavascriptExecutor)Login.getdriver();
 	      WebElement newcase = Login.getdriver().findElement(By.xpath("(//a[@title='New'])"));
 	      js.executeScript("arguments[0].click();", newcase);
-	      Login.getdriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	      commonWait();
+	      WebDriverWait wait1 = new WebDriverWait (Login.getdriver(), Duration.ofSeconds(15));
+	    	wait1.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[starts-with(@id,'85') and @class= 'uiPopupTrigger']")));
+	    	commonWait();
     }
     
     
@@ -45,14 +55,14 @@ public class BasePage {
 	      js.executeScript("arguments[0].click();", searchCase);
 	      searchCase.sendKeys(caseNum);
 	      searchCase.sendKeys(Keys.ENTER);
-	      Login.getdriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	      commonWait();
   }
     
     public  void clickFirstRecord()    {    	
     	  JavascriptExecutor js = (JavascriptExecutor)Login.getdriver();
   	      WebElement firstRec = Login.getdriver().findElement(By.xpath("((//a[@data-refid='recordId']))[1]"));
   	      js.executeScript("arguments[0].click();", firstRec);
-  	      Login.getdriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+  	    commonWait();
     }
     
     
@@ -61,21 +71,21 @@ public class BasePage {
 	      WebElement subFirstRec = Login.getdriver().findElement(By.xpath("((//a[@data-refid='recordId']))[2]"));
 	      act.click(subFirstRec);
 	      act.doubleClick(subFirstRec).perform();
-	      Login.getdriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	      commonWait();
   }
     
     public  void show3moreAction()    {    	
   	  JavascriptExecutor js = (JavascriptExecutor)Login.getdriver();
 	      WebElement expand = Login.getdriver().findElement(By.xpath("(//a[@title='Show 3 more actions'])"));
 	      js.executeScript("arguments[0].click();", expand);
-	      Login.getdriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	      commonWait();
   }
     
     public  void clickEdit()    {    	
     	  JavascriptExecutor js = (JavascriptExecutor)Login.getdriver();
   	      WebElement edit = Login.getdriver().findElement(By.xpath("(//button[@name='Edit'])"));
   	      js.executeScript("arguments[0].click();", edit);
-  	      Login.getdriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+  	    commonWait();
     }
     
     public  void clickDelete() throws InterruptedException    {    	
@@ -91,14 +101,14 @@ public class BasePage {
     
     public  String storeDeleteAlertmessage()    {
         String delAlert = Login.getdriver().findElement(By.xpath("  //div[@class = 'detail slds-text-align--center']")).getText();
-        Login.getdriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        commonWait();
     	System.out.println(delAlert);
 		return delAlert;	
         }
     
     public  String storeAlertmessage()    {
         String act = Login.getdriver().findElement(By.xpath("//lightning-formatted-text[contains(text(),'Phone')]")).getText();
-        Login.getdriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        commonWait();
     	System.out.println(act);
 		return act;	
         }
@@ -121,7 +131,7 @@ public class BasePage {
         String expected = Login.getdriver().findElement(By.xpath("//div[starts-with(@id,'85') and @class= 'uiPopupTrigger']")).getText();
         System.out.println(expected);	
         
-        Login.getdriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        commonWait();
 		return expected;
         }
     
@@ -136,7 +146,7 @@ public class BasePage {
         String expected = Login.getdriver().findElement(By.xpath("//div[starts-with(@id,'85') and @class= 'uiPopupTrigger']")).getText();
         System.out.println(expected);	
         
-        Login.getdriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        commonWait();
 		return expected;
         }
     
@@ -158,39 +168,39 @@ public class BasePage {
     public  void clickSave()    {
         WebElement save = Login.getdriver().findElement(By.xpath("(//span[@class=' label bBody' and contains(text(), 'Save')])[3]"));
         save.click();
-        Login.getdriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        commonWait();
         }
     
     public  void clickSave_ExistingRec()    {
         WebElement save = Login.getdriver().findElement(By.xpath("(//span[@class=' label bBody' and contains(text(), 'Save')])[3]"));
         save.click();
-        Login.getdriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        commonWait();
         }
     
     
     public  String storeSubject()    {
         String act = Login.getdriver().findElement(By.xpath("//lightning-formatted-text[contains(text(),'Phone')]")).getText();
-        Login.getdriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        commonWait();
     	System.out.println(act);
 		return act;	
         }
     
     public  void clearSubject()    {
     	WebElement clear = Login.getdriver().findElement(By.xpath("//input[starts-with(@maxlength,'255') and @class= ' input']"));
-        Login.getdriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+    	commonWait();
         clear.clear();
         }
     
     public  String storeDefaultSubject()    {
     	String def = Login.getdriver().findElement(By.xpath("//span[starts-with(@data-aura-rendered-by,'259') and @class= 'uiOutputText']")).getText();
-        Login.getdriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+    	commonWait();
         System.out.println(def);
 		return def;
         }
     
     public  String storeDefaultSubject_existingRec()    {
     	String def = Login.getdriver().findElement(By.xpath("//lightning-formatted-text[@slot='outputField' and contains(text(), 'Ordinary Case')]")).getText();
-        Login.getdriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+    	commonWait();
         System.out.println(def);
 		return def;
         }
@@ -198,7 +208,7 @@ public class BasePage {
     
     public  String storeError_BlankOrigin()    {
         String act = Login.getdriver().findElement(By.xpath("//li[contains(text(),'These required fields must be completed: Case Origin')]")).getText();
-        Login.getdriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        commonWait();
     	System.out.println(act);
 		return act;
 	

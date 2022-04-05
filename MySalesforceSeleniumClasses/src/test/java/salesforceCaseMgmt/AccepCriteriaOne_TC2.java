@@ -1,3 +1,6 @@
+
+// Verify whether a case is successfully created when all the fields are provided with inputs
+
 package salesforceCaseMgmt;
 
 import org.testng.Assert;
@@ -21,7 +24,6 @@ public class AccepCriteriaOne_TC2 extends BasePage {
 public void caseScreen(String ori,String subj,String reason,String comments) throws InterruptedException {
 
 	clickCaseTab();
-	Thread.sleep(10000);
 	clickNewCase();
 //	clickCaseOrigin();
 	selectCaseOrigin(ori);

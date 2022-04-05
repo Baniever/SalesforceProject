@@ -1,3 +1,7 @@
+
+
+// Verify whether Origin is equal to “Phone” when a new case with Origin as "Phone" and Subject as "PasswordRequest" is created
+
 package salesforceCaseMgmt;
 
 import org.testng.Assert;
@@ -16,12 +20,11 @@ public class AccepCriteriaOne_TC1 extends BasePage {
 	public void setUp() {
 		Login.initialize();
 	}
-@Test
+@Test(suiteName = "Salesforce", testName = "AcceptanceCriteria_TC1",enabled= true)
 @Parameters ({"ori","subj"})
 public void caseScreen(String ori,String subj) throws InterruptedException {
 
 	clickCaseTab();
-	Thread.sleep(10000);
 	clickNewCase();
 	String exporigin= selectCaseOrigin(ori);
 	inputSubject(subj);

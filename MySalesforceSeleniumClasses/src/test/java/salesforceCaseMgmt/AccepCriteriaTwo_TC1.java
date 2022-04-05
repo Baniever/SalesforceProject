@@ -1,3 +1,7 @@
+
+
+// Verify if the subject field is populated with default value when a new case is created with Subject as blank 
+
 package salesforceCaseMgmt;
 
 import static org.testng.Assert.assertFalse;
@@ -24,7 +28,6 @@ public class AccepCriteriaTwo_TC1 extends BasePage {
 public void caseScreen(String ori) throws InterruptedException {
 
 	clickCaseTab();
-	Thread.sleep(10000);
 	clickNewCase();
 	selectCaseOrigin(ori);
 	clickSave() ;
